@@ -1,26 +1,4 @@
-import { useEffect, useState } from "react"
-
-
 function ResumePreview({resume}) {
-  // const [resume,setResume]=useState(null);
-  // const [loading,setLoading]=useState(true);
-  // useEffect(()=>{
-  //   const fetch=async()=>{
-  //     try{
-  //         const res=await API.get('/resume/me');
-  //         setResume(res.data);
-  //     }
-  //     catch(err){
-  //       console.error('Failed to load resume',err.response?.data ||err.message);
-        
-  //     }
-  //     finally{
-  //       setLoading(false);
-  //     }
-  //   }
-  //   fetch();
-  // },[]);
-  //if(loading)return <p>Loading....</p>;
   if(!resume)return <p>Resume not found</p>;
   return (
     <div>
@@ -31,7 +9,13 @@ function ResumePreview({resume}) {
         </section>
         <section>
         <h3>Experience</h3>
-        {resume.experience.map((exp, idx) => (
+        {resume.experience.filter(exp=>
+            exp.company.trim()!==''||
+            exp.role.trim()!==''||
+            exp.startYear.trim()!==''||
+            exp.endYear.trim()!==''||
+            exp.description.trim()!==''
+        ).map((exp, idx) => (
           <div key={idx}>
             <p><strong>{exp.company}</strong> - {exp.role}</p>
             <p>{exp.startYear} to {exp.endYear}</p>
@@ -42,7 +26,12 @@ function ResumePreview({resume}) {
 
       <section>
         <h3>Projects</h3>
-        {resume.projects.map((proj, idx) => (
+        {resume.projects.filter(proj =>
+          proj.title.trim() !== '' ||
+          proj.techStack.trim() !== '' ||
+          proj.description.trim() !== '' ||
+          proj.link.trim() !== ''
+        ).map((proj, idx) => (
           <div key={idx}>
             <p><strong>{proj.title}</strong> - {proj.techStack}</p>
             <p>{proj.description}</p>

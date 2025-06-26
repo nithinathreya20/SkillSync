@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import API from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 
-function AddResume() {
+function ResumeForm() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     education: { school: '', degree: '', field: '', startYear: '', endYear: '' },
@@ -10,6 +10,18 @@ function AddResume() {
     projects: [{ title: '', description: '', techStack: '', link: '' }],
     skills: [''],
   });
+  useEffect(() => {
+  const fetchResume = async () => {
+    try {
+      const res = await API.get('/resume/me');
+      if (res.data) setFormData(res.data);
+    } catch (err) {
+      if (err.response?.status !== 404)
+        console.error('Failed to fetch resume:', err.response?.data || err.message);
+    }
+  };
+  fetchResume();
+}, []);
 
   const handleChange = (e, section, index = null) => {
     const { name, value } = e.target;
@@ -63,7 +75,7 @@ function AddResume() {
 
   return (
     <div>
-      <h2>Add Resume</h2>
+      <h2>{formData._id ? "Edit Resume" : "Add Resume"}</h2>
       <form onSubmit={handleSubmit}>
         <h3>Education</h3>
         {['school', 'degree', 'field', 'startYear', 'endYear'].map((field) => (
@@ -126,4 +138,4 @@ function AddResume() {
   );
 }
 
-export default AddResume;
+export default ResumeForm;

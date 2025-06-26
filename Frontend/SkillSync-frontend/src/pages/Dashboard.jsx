@@ -49,6 +49,7 @@ function Dashboard() {
         <>
           <h3>Your Resume:</h3>
            <ResumePreview resume={resume}/>
+           <Link to='/resume/edit'>Edit Resume</Link>
         </>
       ) : (
         <Link to="/resume/add">Create Resume</Link>
