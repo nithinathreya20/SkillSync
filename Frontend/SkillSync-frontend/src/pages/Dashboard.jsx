@@ -37,7 +37,18 @@ function Dashboard() {
     localStorage.removeItem('token');
     navigate('/login');
   }
+  const deleteResume = async () => {
+  if (!window.confirm("Are you sure you want to delete your resume?")) return;
 
+  try {
+    await API.delete('/resume');
+    setResume(null);
+    alert("Resume deleted successfully.");
+  } catch (err) {
+    console.error("Failed to delete resume", err.response?.data || err.message);
+    alert("Error deleting resume.");
+  }
+};
   if (!user) return <p>Loading user...</p>;
 
   return (
@@ -50,6 +61,7 @@ function Dashboard() {
           <h3>Your Resume:</h3>
            <ResumePreview resume={resume}/>
            <Link to='/resume/edit'>Edit Resume</Link>
+           <button type='button'onClick={deleteResume}>Delete Resume</button>
         </>
       ) : (
         <Link to="/resume/add">Create Resume</Link>
