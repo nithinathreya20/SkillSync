@@ -14,6 +14,7 @@ function Login() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -26,6 +27,9 @@ function Login() {
       console.error('Login failed:', err.response?.data?.msg || err.message);
     }
   };
+  const Redirect=()=>{
+    navigate('/register');
+  }
 
   return (
     <div>
@@ -33,11 +37,14 @@ function Login() {
       <form onSubmit={handleSubmit}>
         <input name="email" type="email" placeholder="Email" onChange={handleChange} required />
         <br />
-        <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
+        <input name="password" type="password" placeholder="Password" onChange={handleChange} required/>
         <br />
         <button type="submit">Login</button>
-      </form>
+      
+     </form>
+     <p>New here? <button type='button' onClick={Redirect}>Register</button></p>
     </div>
+  
   );
 }
 

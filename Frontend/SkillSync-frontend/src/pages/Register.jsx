@@ -24,6 +24,10 @@ function Register() {
             console.error('Registration failed',err.response?.data?.msg ||  err.message)
         }
     }
+    const Redirect=()=>
+    {
+      navigate('/login');
+    }
   return (
     <div>
         <h2>Register</h2>
@@ -57,6 +61,7 @@ function Register() {
         <button type="submit">Register</button>
 
         </form>
+        <p>Already an User? <button type='button'onClick={Redirect}>Sign in</button></p>
     </div>
   )
 }
