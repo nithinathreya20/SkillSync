@@ -5,6 +5,7 @@ import ProtectedRoutes from "./components/ProtectedRoutes";
 import Dashboard from "./pages/Dashboard";
 import ResumePreview from "./pages/ResumePreview";
 import ResumeForm from "./pages/ResumeForm";
+import "./App.css"
 
 function App() {
   return (

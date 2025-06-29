@@ -29,15 +29,22 @@ function Register() {
       navigate('/login');
     }
   return (
-    <div>
-        <h2>Register</h2>
-        <form onSubmit={handleSubmit}>
+    <>
+    <div className=' flex justify-center bg-gray-200 '>
+       <img src="/logo.png" alt="SkillSync Logo" className=" w-18  h-15 self-center pr-2 mt-2" ></img>
+       <p className='text-blue-500 pl-2 self-center font-serif font-bold text-4xl '>SkillSync</p>
+    </div>
+    <div className='min-h-screen flex items-center justify-center flex-col  bg-gray-200 font-sans'>
+        
+        <form onSubmit={handleSubmit} className='bg-white p-6 rounded-lg mb-2 shadow-md w-full max-w-md '>
+        <h2 className='text-2xl font-semibold mb-4 cursor-text'>Register</h2>  
         <input
             name='name'
             placeholder='Name'
             value={formData.name}
             onChange={handleChange}
             required 
+            className='border border-gray-300 rounded px-4 py-2 w-full mb-4'
         />
         <br />
         <input
@@ -47,6 +54,7 @@ function Register() {
           value={formData.email}
           onChange={handleChange}
           required
+          className='border border-gray-300 rounded px-4 py-2 w-full mb-4'
         />
         <br />
         <input
@@ -56,13 +64,15 @@ function Register() {
           value={formData.password}
           onChange={handleChange}
           required
+          className='border border-gray-300 rounded px-4 py-2 w-full mb-4'
         />
         <br />
-        <button type="submit">Register</button>
+        <button type="submit" className='w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600'>Register</button>
 
         </form>
-        <p>Already an User? <button type='button'onClick={Redirect}>Sign in</button></p>
+        <p className='mt-2 text-sm'>Already a User? <button className='bg-blue-500 text-white py-2 rounded min-w-min hover:bg-blue-600 p-4'type='button' onClick={Redirect}>Sign in</button></p>
     </div>
+    </>
   )
 }
 
