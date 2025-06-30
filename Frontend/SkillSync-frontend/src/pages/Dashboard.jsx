@@ -36,7 +36,6 @@ function Dashboard() {
   const logOut=()=>{
     window.confirm("Do you want to log Out?")?navigate('/login'):null;
     localStorage.removeItem('token');
-    //navigate('/login');
   }
   const deleteResume = async () => {
   if (!window.confirm("Are you sure you want to delete your resume?")) return;
@@ -77,7 +76,13 @@ function Dashboard() {
            </div>
         </>
       ) : (
-        <Link to="/resume/add">Create Resume</Link>
+        <div className="flex flex-col items-center  mt-16 text-center px-4  h-[250px] bg-blue-500 border rounded-lg ">
+          <p className="text-lg md:text-xl text-white my-6 max-w-xl">
+            Your resume is your first step toward opportunity. Use our professional resume builder to create a polished,
+            tailored document that showcases your strengths and opens doors to your future career.
+          </p>
+        <Link to="/resume/add" className="px-6 py-3 bg-green-500  text-white font-semibold rounded-lg shadow hover:bg-green-600 transition">Create Resume</Link>
+        </div>
       )}
      
     </div>

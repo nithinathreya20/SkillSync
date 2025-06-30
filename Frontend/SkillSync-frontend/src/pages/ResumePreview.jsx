@@ -5,7 +5,7 @@ function ResumePreview({resume}) {
     <div className="bg-white w-[794px] min-h-[300px] mx-auto my-6 p-10 shadow-lg rounded-md">
         <section className="mb-6">
           <h3 className="text-xl font-bold text-blue-500 border-b border-gray-200 pb-2 mb-2">Education</h3>
-          <p className="text-gray-800 font-medium"><strong>{resume.education.school}</strong>, {resume.education.degree} in {resume.education.field} ({resume.education.startYear} - {resume.education.endYear})</p>
+          <p className="text-gray-800 font-medium"><strong>{resume.education.school}</strong>, {resume.education.degree}  {resume.education.field} ({resume.education.startYear} - {resume.education.endYear})</p>
         </section>
 
         <section className="mb-6">
