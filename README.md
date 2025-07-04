@@ -94,5 +94,5 @@ This project is licensed under the MIT License.
 - Resume sharing via public links
 
 ## 🧑‍💻 Author
-##### Nithin Athreya
+**Nithin Athreya** \
 [GitHub](https://github.com/nithinathreya20) | [LinkedIn](https://www.linkedin.com/in/nithin-athreya-1807b8320/)
